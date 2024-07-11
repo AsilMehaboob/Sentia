@@ -100,11 +100,7 @@ export function GridBackgroundDemo() {
             {isLoading ? 'Analyzing...' : 'Analyze'}
           </motion.button>
         </form>
-        {error && (
-          <div className="bg-red-500 text-white p-2 rounded mt-4">
-            Error: {error}
-          </div>
-        )}
+    
         <AnimatePresence>
           {response && (
             <motion.div
