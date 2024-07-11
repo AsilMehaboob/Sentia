@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -12,65 +12,27 @@ const transition = {
 };
 
 export const MenuItem = ({
-  setActive,
-  active,
-  item,
   children,
+  item,
 }: {
-  setActive: (item: string) => void;
-  active: string | null;
-  item: string;
   children?: React.ReactNode;
+  item: string;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative">
+    <div className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white  hover:text-neutral-300 dark:text-black hover:opacity-[0.9] dark:hover:opacity-90"
+        className="cursor-pointer text-white hover:text-neutral-300 dark:text-black hover:opacity-[0.9] dark:hover:opacity-90"
       >
         {item}
       </motion.p>
-      {active !== null && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={transition}
-        >
-          {active === item && (
-            <div className="absolute top-full  left-1/2 transform -translate-x-1/2 pt-4">
-              <motion.div
-                transition={transition}
-                layoutId="active"
-                className="bg-black dark:bg-white backdrop-blur-sm rounded-2xl overflow-hidden border border-white/[0.2] dark:border-black/[0.2] shadow-xl"
-              >
-                <motion.div
-                  layout
-                  className="w-max h-full p-4"
-                >
-                  {children}
-                </motion.div>
-              </motion.div>
-            </div>
-          )}
-        </motion.div>
-      )}
     </div>
   );
 };
 
-export const Menu = ({
-  setActive,
-  children,
-}: {
-  setActive: (item: string | null) => void;
-  children: React.ReactNode;
-}) => {
+export const Menu = ({ children }: { children: React.ReactNode }) => {
   return (
-    <nav
-      onMouseLeave={() => setActive(null)}
-      className="relative rounded-full border border-gray-300  dark:border-black/[0.2] bg-#0b1623 shadow-input flex justify-center space-x-4 px-8 py-6"
-      style={{ backgroundColor: "#0d1010", boxShadow: "0 0 1px 0 rgba(1, 1, 1, 1)" }}
-    >
+    <nav className="relative rounded-full border border-gray-300 dark:border-black/[0.2] bg-#0b1623 shadow-input flex justify-center space-x-4 px-8 py-6" style={{ backgroundColor: "#0d1010", boxShadow: "0 0 1px 0 rgba(1, 1, 1, 1)" }}>
       {children}
     </nav>
   );
@@ -82,10 +44,7 @@ export const ProductItem = () => {
 
 export const HoveredLink = ({ children, ...rest }: any) => {
   return (
-    <Link
-      {...rest}
-      className="text-neutral-200 dark:text-neutral-700 hover:text-white dark:hover:text-black"
-    >
+    <Link {...rest} className="text-neutral-200 dark:text-neutral-700 hover:text-white dark:hover:text-black">
       {children}
     </Link>
   );

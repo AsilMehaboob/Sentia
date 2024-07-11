@@ -8,7 +8,7 @@ import { GeminiLinkPreview } from "../pages/linktext/linktext";
 export default function Landing() {
     return (
       <>
-      <div>
+      <div className="flex flex-col">
         <Hero/>
       
         <HomeCanvasRevealEffect/>
