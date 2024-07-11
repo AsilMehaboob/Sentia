@@ -9,6 +9,7 @@ export default function Landing() {
     return (
       <>
       <div className="flex flex-col bg-black">
+
         <Hero/>
       
         <HomeCanvasRevealEffect/>
