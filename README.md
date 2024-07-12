@@ -70,10 +70,8 @@ Make sure you have the following installed:
 ## Project Structure
 
 - `src/`: Contains the source code for the application.
-  - `pages/`: Contains Next.js pages.
   - `components/`: Reusable components used across the application.
-  - `styles/`: Tailwind CSS styles and global styles.
-  - `public/`: Public assets like images.
+  -   - `public/`: Public assets like images.
 
 ## Contributing
 
