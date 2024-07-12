@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+```markdown
+# Sentia - Sentiment Analysis
+
+![Sentia Logo](./public/images/logo.png)
+
+## Overview
+
+Sentia is a sentiment analysis web application built using Google's Gemini. It allows users to make smarter decisions with data-driven sentiment analysis. The application provides a score from -1 to 1 indicating the sentiment of the input text.
+
+![Sentia Homepage](./public/images/homepage.png)
+
+## Features
+
+- **Sentiment Analysis:** Analyze the sentiment of any text input.
+- **User-Friendly Interface:** Simple and intuitive UI for ease of use.
+- **Responsive Design:** Works seamlessly across various devices.
+
+## Technologies Used
+
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Google's Gemini**
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Make sure you have the following installed:
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/sentia.git
+   cd sentia
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add your Google Gemini API key:
+   ```env
+   NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+1. **Navigate to the Homepage:**
+   Visit the main page of the application where you can start analyzing text.
+
+2. **Input Text:**
+   Enter the text you want to analyze in the provided text box.
+
+3. **Analyze:**
+   Click on the "Analyze" button to get the sentiment score.
+
+## Project Structure
+
+- `src/`: Contains the source code for the application.
+  - `pages/`: Contains Next.js pages.
+  - `components/`: Reusable components used across the application.
+  - `styles/`: Tailwind CSS styles and global styles.
+  - `public/`: Public assets like images.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue to discuss changes.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+If you have any questions or feedback, please contact me at [your email address].
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Instructions for setting up the images:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Save the logo image as `logo.png` and the homepage screenshot as `homepage.png`.
+2. Place both images in the `public/images` directory of your Next.js project.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This setup will allow the images to be correctly referenced in your `README.md`. Replace `yourusername`, `your_api_key_here`, and `your email address` with the appropriate information.
