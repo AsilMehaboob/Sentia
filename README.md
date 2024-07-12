@@ -1,13 +1,13 @@
 
 # Sentia - Sentiment Analysis
 
-![Sentia Logo](./public/images/logo.png)
+![Sentia Logo](./public/logo.png)
 
 ## Overview
 
 Sentia is a sentiment analysis web application built using Google's Gemini. It allows users to make smarter decisions with data-driven sentiment analysis. The application provides a score from -1 to 1 indicating the sentiment of the input text.
 
-![Sentia Homepage](./public/images/homepage.png)
+![Sentia Homepage](./public/homepage.png)
 
 ## Features
 
