@@ -1,7 +1,6 @@
 
 # Sentia - Sentiment Analysis
 
-![Sentia Logo](./public/logo.png)
 
 ## Overview
 
