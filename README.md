@@ -1,5 +1,4 @@
 
-```markdown
 # Sentia - Sentiment Analysis
 
 ![Sentia Logo](./public/images/logo.png)
@@ -87,12 +86,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-If you have any questions or feedback, please contact me at [your email address].
-```
-
-**Instructions for setting up the images:**
-
-1. Save the logo image as `logo.png` and the homepage screenshot as `homepage.png`.
-2. Place both images in the `public/images` directory of your Next.js project.
-
-This setup will allow the images to be correctly referenced in your `README.md`. Replace `yourusername`, `your_api_key_here`, and `your email address` with the appropriate information.
+If you have any questions or feedback, please contact me at asilmehaboob@gmail.com
