@@ -6,7 +6,7 @@ import Footer from '../pages/footer/footer';
 
 const Help = () => {
   return (
-    <div >
+    <div className='bg-black' >
         <Navbar/>
         <BackgroundBeams/>
         <HelpBackgroundBeams/>
