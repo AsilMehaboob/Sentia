@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 let genAI: GoogleGenerativeAI | null = null;
 let model: any = null; // Replace 'any' with the actual type if known
@@ -19,6 +20,7 @@ const generationConfig = {
   maxOutputTokens: 8192,
   responseMimeType: "text/plain",
 };
+
 
 export async function generateResponse(input: string): Promise<string> {
   if (!genAI || !model) {
