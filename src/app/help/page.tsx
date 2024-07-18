@@ -2,6 +2,7 @@ import React from 'react'
 import { BackgroundBeams } from '../components/beam'
 import Navbar from "../pages/navbar/navbar"
 import { HelpBackgroundBeams } from '../pages/beam/beam';
+import Footer from '../pages/footer/footer';
 
 const Help = () => {
   return (
@@ -9,7 +10,9 @@ const Help = () => {
         <Navbar/>
         <BackgroundBeams/>
         <HelpBackgroundBeams/>
+        <Footer/>
     </div>
+
   )
 }
 
