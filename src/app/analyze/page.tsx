@@ -6,9 +6,10 @@ import Footer from '../pages/footer/footer';
 
 const AnalyzePage = () => {
   return (
-    <div>
-      <Navbar/>
-      <GridBackgroundDemo/>
+    <div><section><Navbar/></section>
+      
+      <section><GridBackgroundDemo/></section>
+      
       <Footer/>
     </div>
   );

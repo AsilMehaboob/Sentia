@@ -1,34 +1,61 @@
-"use client";
+"use client"
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { generateResponse } from "../../../services/Analyzer";
-import { generateScore } from "../../../services/ScoreAnalyzer";
-import { HelpModal } from "../../components/helpmodal";
 
-export function GridBackgroundDemo() {
-  const [inputText, setInputText] = useState<string>("");
+import axios from 'axios';
+import { AnimatePresence, motion } from "framer-motion";
+import { generateResponse } from "../../services/Analyzer";
+import { generateScore } from "../../services/ScoreAnalyzer";
+
+const tweetapikey = process.env.NEXT_PUBLIC_RAPID_API_KEY
+
+const TweetAnalyzer = () => {
+  const [twitterLink, setTwitterLink] = useState<string>("");
+  const [tweetText, setTweetText] = useState<string>("");
   const [response, setResponse] = useState<string>("");
   const [score, setScore] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [isHelpModalOpen, setIsHelpModalOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const fetchTweetText = async (url: string) => {
+    const tweetIdMatch = url.match(/status\/(\d+)/);
+    if (!tweetIdMatch) {
+      throw new Error('Invalid Twitter URL');
+    }
+    const tweetId = tweetIdMatch[1];
+
+    const options = {
+      method: 'GET',
+      url: 'https://twitter154.p.rapidapi.com/tweet/details',
+      params: { tweet_id: tweetId },
+      headers: {
+        'x-rapidapi-key': tweetapikey,
+        'x-rapidapi-host': 'twitter154.p.rapidapi.com'
+      }
+    };
+
+    const response = await axios.request(options);
+    return response.data.text;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setIsLoading(true);
 
-    if (!inputText.trim()) {
-      setError("Please enter some text.");
+    if (!twitterLink.trim()) {
+      setError("Please enter a Twitter link.");
       setIsLoading(false);
       return;
     }
 
     try {
-      const result = await generateResponse(inputText);
+      const tweetText = await fetchTweetText(twitterLink);
+      setTweetText(tweetText);
+
+      const result = await generateResponse(tweetText);
       setResponse(result);
 
-      const score = await generateScore(inputText);
+      const score = await generateScore(tweetText);
       setScore(parseFloat(score));
     } catch (error) {
       console.error("Error generating response or score:", error);
@@ -81,22 +108,22 @@ export function GridBackgroundDemo() {
       <div className="absolute pointer-events-none inset-0 dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_0.5%,black)] flex items-center justify-center"></div>
       <div className="w-full max-w-md px-6 py-8 space-y-6 bg-black border-neutral-700 border-2 rounded-lg shadow-lg">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-white">Sentiment Analysis</h1>
-          <p className="mt-2 text-neutral-400">Enter some text and we'll analyze the sentiment.</p>
+          <h1 className="text-3xl font-bold text-white">Twitter Sentiment Analysis</h1>
+          <p className="mt-2 text-neutral-400">Enter a Twitter link and we'll analyze the sentiment.</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="text" className="block text-sm font-medium text-white">
-              Text to analyze
+            <label htmlFor="twitter-link" className="block text-sm font-medium text-white">
+              Twitter link to analyze
             </label>
             <div className="mt-1">
-              <textarea
-                id="text"
-                rows={3}
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
+              <input
+                id="twitter-link"
+                type="text"
+                value={twitterLink}
+                onChange={(e) => setTwitterLink(e.target.value)}
                 className="block w-full rounded-md border border-neutral-600 bg-neutral-800 px-4 py-3 text-white shadow-sm focus:border-primary focus:ring-primary"
-                placeholder="Enter your text here..."
+                placeholder="Enter Twitter link here..."
               />
             </div>
           </div>
@@ -113,6 +140,20 @@ export function GridBackgroundDemo() {
           </div>
         </form>
         <AnimatePresence>
+          {tweetText && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              className="relative bg-black shadow-md rounded p-4 w-full mt-4 border-neutral-700 border-2"
+            >
+              <h2 className="text-lg font-medium text-white">Tweet Text:</h2>
+              <p className="mt-2 text-white">{tweetText}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
           {response && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -122,24 +163,14 @@ export function GridBackgroundDemo() {
               className="relative bg-black shadow-md rounded p-4 w-full mt-4 border-neutral-700 border-2"
             >
               <h2 className="text-lg font-medium text-white">Sentiment Analysis Result:</h2>
-              <button
-                onClick={() => setIsHelpModalOpen(true)}
-                className="absolute top-2 right-2 bg-neutral-800 text-white p-1 rounded-full w-6 h-6 flex items-center justify-center"
-              >
-                ?
-              </button>
               <p className="mt-2 text-white">{response}</p>
               {renderScoreBar()}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-      <AnimatePresence>
-        {isHelpModalOpen && (
-          <HelpModal isOpen={isHelpModalOpen} onClose={() => setIsHelpModalOpen(false)} />
-        )}
-      </AnimatePresence>
     </div>
   );
-}
+};
+
+export default TweetAnalyzer;
