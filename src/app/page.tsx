@@ -1,5 +1,5 @@
+import Navbar from "./components/navbar";
 import Footer from "./pages/footer/footer";
-import Navbar from "./pages/navbar/navbar";
 import Landing from "./pages/page";
 
 
@@ -8,7 +8,6 @@ import Landing from "./pages/page";
 export default function Home() {
   return (
     <>
-      <Navbar/>
       <Landing/>
       <Footer/>
     </>

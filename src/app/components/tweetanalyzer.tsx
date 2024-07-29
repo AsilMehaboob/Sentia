@@ -105,7 +105,7 @@ const TweetAnalyzer = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">
-      <div className="absolute pointer-events-none inset-0 dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_0.5%,black)] flex items-center justify-center"></div>
+      <div className="absolute pointer-events-none inset-0 dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_100%,black)] flex items-center justify-center"></div>
       <div className="w-full max-w-md px-6 py-8 space-y-6 bg-black border-neutral-700 border-2 rounded-lg shadow-lg">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-white">Twitter Sentiment Analysis</h1>

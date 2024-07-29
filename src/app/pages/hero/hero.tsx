@@ -4,7 +4,7 @@ import { WavyBackground } from "../../components/hero";
 import { HoverBorderGradientDemo} from "../button/button"
 import Link from "next/link";
 
-export function Hero() {
+export default function Hero() {
   return (
     <WavyBackground className="max-w-4xl mx-auto pb-40">
       <p className="text-4xl md:text-4xl lg:text-8xl sm:text-3xl text-white font-bold inter-var text-center">

@@ -2,11 +2,11 @@
 import React from "react";
 import { BackgroundBeams } from "../../components/beam";
 
-export function HelpBackgroundBeams() {
+export default function HelpBackgroundBeams() {
   return (
-    <div className="h-[55rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased mb-8">
+    <div className="h-[45rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased mb-8">
       <div className="max-w-2xl mx-auto p-4">
-        <h1 className="relative z-10 text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
+        <h1 className="relative z-10  text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
           What is Sentia?
         </h1>
         <p className="text-bold text-neutral-500 max-w-lg mx-auto my-2 text-md relative z-10">
