@@ -1,6 +1,6 @@
 import React from 'react';
 import TweetAnalyzer from '../components/tweetanalyzer'; // Adjust the path as needed
-import Navbar from '../components/navbar';
+import Navbar from '../pages/navbar/navbar';
 
 const TweetAnalyse = () => {
   return (
@@ -8,9 +8,9 @@ const TweetAnalyse = () => {
         
         <Navbar/>
     </div>
-    <section>
+    <div>
         <TweetAnalyzer />
-    </section>
+    </div>
       
     </div>
   );

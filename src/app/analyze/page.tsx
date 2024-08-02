@@ -1,20 +1,17 @@
 // pages/analyze.tsx
 import React from 'react';
-import  GridBackgroundDemo  from "../pages/textbox/textbox";
-
+import GridBackgroundDemo from '../pages/textbox/textbox';
 import Footer from '../pages/footer/footer';
-import Navbar from '../components/navbar';
+import Navbar from '../pages/navbar/navbar';
 
 const AnalyzePage = () => {
   return (
-    <div><div>
-        
-    <Navbar/>
-</div>
-      
-      <section><GridBackgroundDemo/></section>
-      
-      <Footer/>
+    <div>
+      <Navbar />
+      <section>
+        <GridBackgroundDemo />
+      </section>
+      <Footer />
     </div>
   );
 };

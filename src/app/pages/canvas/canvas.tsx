@@ -7,7 +7,7 @@ import image1 from "../canvas/mlflash.png"
 import image2 from "../canvas/realtime.png"
 import image3 from "../canvas/testimonial.png"
 
-export default function HomeCanvasRevealEffect() {
+export function HomeCanvasRevealEffect() {
   return (
     <>
       <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-black dark:bg-white w-full gap-4 mx-auto px-8">
