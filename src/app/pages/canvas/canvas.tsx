@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "../../components/canvas";
-import image1 from "../canvas/mlflash.png"
-import image2 from "../canvas/realtime.png"
-import image3 from "../canvas/testimonial.png"
+import image1 from "../canvas/mlflash.png";
+import image2 from "../canvas/realtime.png";
+import image3 from "../canvas/testimonial.png";
 
 export function HomeCanvasRevealEffect() {
   return (
@@ -56,7 +56,7 @@ const Card = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-white/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-xs w-full mx-auto p-4 relative h-[30rem] relative"
+      className="border border-white/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-xs w-full mx-auto p-4 relative h-[25rem] relative"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-black text-white" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-black text-white" />
@@ -79,7 +79,7 @@ const Card = ({
         <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
           {icon}
         </div>
-        <h2 className="dark:text-black text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-white mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+        <h2 className="dark:text-black text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-white mt-2 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
           {title}
         </h2>
       </div>
@@ -94,7 +94,7 @@ const Image1 = () => {
       alt="Icon"
       width={65}
       height={66}
-      className="h-17 w-17    dark:text-white group-hover/canvas-card:text-white"
+      className="h-17 w-17 dark:text-white group-hover/canvas-card:text-white"
     />
   );
 };
@@ -106,11 +106,10 @@ const Image2 = () => {
       alt="Icon"
       width={65}
       height={66}
-      className="h-17 w-17   dark:text-white group-hover/canvas-card:text-white"
+      className="h-17 w-17 dark:text-white group-hover/canvas-card:text-white"
     />
   );
 };
-
 
 const Image3 = () => {
   return (
@@ -119,24 +118,23 @@ const Image3 = () => {
       alt="Icon"
       width={65}
       height={66}
-      className="h-17 w-17   dark:text-white group-hover/canvas-card:text-white"
+      className="h-17 w-17 dark:text-white group-hover/canvas-card:text-white"
     />
   );
 };
 
-
 export const Icon = ({ className, ...rest }: any) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        stroke="currentColor"
-        className={className} 
-        {...rest}
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-      </svg>
-    );
-  };
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className={className} 
+      {...rest}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+  );
+};

@@ -10,6 +10,7 @@ import {
   Popover,
   PopoverButton,
   PopoverGroup,
+  DisclosurePanel,
   PopoverPanel,
 } from '@headlessui/react'
 import {
@@ -17,21 +18,16 @@ import {
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon} from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { motion } from 'framer-motion'
 
 import logo from '../../../../public/logohome.png'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Analyze Text', description: 'Assess textual sentiment with objective precision.', href: '/analyze', icon: ChartPieIcon },
+  { name: 'Twitter Analysis', description: 'Analyze Sentiment from Twitter Posts', href: '/tweetanalyze', icon: CursorArrowRaysIcon },
 ]
 
 export default function Navbar() {
@@ -57,6 +53,9 @@ export default function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+          <a href="/" className="text-sm font-semibold leading-6 text-white">
+            Home
+          </a>
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
               Analyze
@@ -89,12 +88,6 @@ export default function Navbar() {
             </PopoverPanel>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Features
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Marketplace
-          </a>
           <a href="/help" className="text-sm font-semibold leading-6 text-white">
             Help
           </a>
@@ -113,14 +106,6 @@ export default function Navbar() {
         />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
-            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -141,28 +126,26 @@ export default function Navbar() {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Product
+                    Analyze
                     <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
                   </DisclosureButton>
-                  
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {products.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-lg px-3 py-2 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </DisclosurePanel>
                 </Disclosure>
                 <a
-                  href="/"
+                  href="/help"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Company
+                  Help
                 </a>
               </div>
             </div>

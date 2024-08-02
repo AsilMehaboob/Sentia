@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* globals.css */
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, p, span {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Add other global styles as needed */
+  
